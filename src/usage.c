@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   usage.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/24 02:53:15 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/24 22:19:11 by ivankozlov       ###   ########.fr       */
+/*   Created: 2019/06/24 22:08:25 by ivankozlov        #+#    #+#             */
+/*   Updated: 2019/06/24 22:19:40 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include "ft_printf.h"
 
-int		main(int ac, char *av[])
+void		print_usage()
 {
-	(void)av;
-	if (ac < 2)
-		print_usage();
-	return (0);
+	ft_printf("usage: ./ft_select [argument ...]\n");
 }
