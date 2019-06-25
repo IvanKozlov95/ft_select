@@ -6,14 +6,14 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 00:53:21 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/25 02:00:43 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SELECT_H
 # define FT_SELECT_H
 
-# include "dlist.h"
+#include "list.h"
 
 # include <term.h>
 # include <curses.h>
@@ -29,7 +29,9 @@ typedef enum e_file_type	t_file_type;
 
 struct						s_arg
 {
+	t_file_type				type;
 	char					*value;
+	bool					deleted;
 	bool					selected;
 };
 typedef struct s_arg		t_arg;
@@ -61,6 +63,14 @@ void						reset_config(void);
 */
 
 void						fatal(const int exitcode, const char *fmt, ...);
+
+/*
+** src/args.c
+*/
+
+t_list						*argv_to_list(int ac, char *av[],
+	t_list *(new_elem)(char *));
+t_list						*arg_to_lst_elem(char *arg);
 
 /*
 ** MACROS
