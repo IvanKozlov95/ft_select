@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 01:42:12 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 02:09:08 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/25 04:35:34 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@ static t_file_type		get_file_type(char *path)
 	(void)path;
 	// todo: not implemented
 	return (UNKNW);
+}
+
+t_arg					*get_longest_arg(t_list *args)
+{
+	t_arg	*ret;
+	t_arg	*arg;
+
+	ret = NULL;
+	while (args)
+	{
+		arg = (t_arg *)args->content;
+		if (ret == NULL || arg->length > ret->length)
+			ret = arg;
+		args = args->next;
+	}
+	return (ret);
 }
 
 t_list					*arg_to_lst_elem(char *arg)
