@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   info.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/24 02:53:15 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 00:53:22 by ivankozlov       ###   ########.fr       */
+/*   Created: 2019/06/24 22:57:49 by ivankozlov        #+#    #+#             */
+/*   Updated: 2019/06/24 23:08:02 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "memory.h"
 #include "ft_select.h"
 
-int		main(int ac, char *av[])
+t_info		*get_set_info(void)
 {
-	(void)av;
-	if (ac < 2)
-		print_usage();
-	else
-	{
-		init_config();
-		reset_config();
-	}
-	return (0);
+	static t_info		info;
+
+	return (&info);
 }
