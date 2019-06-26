@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 23:48:59 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 01:51:49 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ void			user_input(t_list *args)
 		toggle_selected(args);
 	else if (c == KENTER)
 		ft_select_stop(args, true);
+	else if (c == KESC)
+		ft_select_stop(args, false);
 }
