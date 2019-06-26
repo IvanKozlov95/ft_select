@@ -6,13 +6,13 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 02:53:15 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 23:10:19 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 02:56:54 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-static void		main_loop(t_list *args)
+static void		main_loop(t_dlist *args)
 {
 	t_info		*info;
 
@@ -28,7 +28,7 @@ static void		main_loop(t_list *args)
 
 int			main(int ac, char *av[])
 {
-	t_list	*args;
+	t_dlist	*args;
 
 	if (ac < 2)
 		print_usage();

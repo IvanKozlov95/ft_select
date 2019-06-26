@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 01:51:49 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 02:56:54 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <unistd.h>
 
-static void		toggle_selected(t_list *args)
+static void		toggle_selected(t_dlist *args)
 {
 	t_info		*info;
 	t_arg		*active;
@@ -29,7 +29,7 @@ static void		toggle_selected(t_list *args)
 		info->active_arg = args;
 }
 
-void			user_input(t_list *args)
+void			user_input(t_dlist *args)
 {
 	long	c;
 
