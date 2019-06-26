@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 00:33:05 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 03:06:59 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 04:36:52 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include <stdlib.h>
 
-static void		free_arg(void *arg, size_t size)
+void		ft_select_free_arg(void *arg, size_t size)
 {
 	(void)size;
-	ft_free(1, ((t_arg *)arg)->value);
+	ft_free(2, ((t_arg *)arg)->value, arg);
 }
 
 void			ft_select_stop(t_dlist *args, bool print_selected)
@@ -26,6 +26,6 @@ void			ft_select_stop(t_dlist *args, bool print_selected)
 	reset_config();
 	if (print_selected)
 		print_selected_args(args);
-	dlstdel(&args, free_arg);
+	dlstdel(&args, ft_select_free_arg);
 	exit(0);
 }

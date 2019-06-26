@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 02:56:54 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 06:27:12 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,29 @@ static void		toggle_selected(t_dlist *args)
 		info->active_arg = args;
 }
 
-void			user_input(t_dlist *args)
+static void		delete_active_arg(t_dlist **args)
 {
-	long	c;
+	t_dlist		*next;
+	t_dlist		*active;
+
+	active = get_set_info()->active_arg;
+	next = active->next ? active->next : *args;
+	dlstremove(args, active, ft_select_free_arg);
+	get_set_info()->active_arg = next;
+}
+
+void			user_input(t_dlist **args)
+{
+	int		c;
 
 	c = 0;
-	read(STDIN_FILENO, &c, 8);
-	if (c == KSPACE)
-		toggle_selected(args);
+	read(STDIN_FILENO, &c, 4);
+	if (c == ' ')
+		toggle_selected(*args);
 	else if (c == KENTER)
-		ft_select_stop(args, true);
+		ft_select_stop(*args, true);
 	else if (c == KESC)
-		ft_select_stop(args, false);
+		ft_select_stop(*args, false);
+	else if (c == KBSPACE || c == KDELETE)
+		delete_active_arg(args);
 }

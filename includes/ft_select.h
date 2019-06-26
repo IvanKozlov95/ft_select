@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 03:08:50 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 06:26:39 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,13 @@ void						print_selected_args(t_dlist *args);
 ** src/input.c
 */
 
-void			user_input(t_dlist *args);
+void						user_input(t_dlist **args);
 
 /*
 ** src/actions/stop.c
 */
 
+void						ft_select_free_arg(void *arg, size_t size);
 void						ft_select_stop(t_dlist *args, bool print_selected);
 
 /*
