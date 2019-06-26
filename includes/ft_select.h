@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 01:54:23 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 01:54:45 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,6 @@ void						refresh_display_table(t_list *args);
 */
 
 void						print_selected_args(t_list *args);
-
-/*
-** src/input.c
-*/
-
-void						user_input(t_list *args);
 
 /*
 ** src/actions/stop.c

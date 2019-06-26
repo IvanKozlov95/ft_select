@@ -37,4 +37,6 @@ void			user_input(t_list *args)
 	read(STDIN_FILENO, &c, 8);
 	if (c == KSPACE)
 		toggle_selected(args);
+	else if (c == KENTER)
+		ft_select_stop(args, true);
 }

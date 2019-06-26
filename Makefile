@@ -6,7 +6,7 @@
 #    By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/24 02:53:40 by ivankozlov        #+#    #+#              #
-#    Updated: 2019/06/24 23:34:22 by ivankozlov       ###   ########.fr        #
+#    Updated: 2019/06/26 00:35:47 by ivankozlov       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ OBJ_DIR = obj/
 SRC_DIR = src/
 INC_DIR = includes/
 LIBFT_DIR = libft/
+ACTIONS_DIR = actions/
 
 # files
 SRC := $(wildcard $(SRC_DIR)*.c)
+SRC += $(wildcard $(SRC_DIR)$(ACTIONS_DIR)*.c)
 OBJ := $(SRC:$(SRC_DIR)%=%)
 OBJ := $(patsubst %, $(OBJ_DIR)%, $(OBJ:.c=.o))
 
@@ -52,8 +54,8 @@ $(LIBFT):
 $(OBJ_DIR):
 	@echo $(OBJ)
 	@echo $(SRC)
-
 	mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)$(ACTIONS_DIR)
 
 $(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
 	$(CC) $(FLAGS) $(LIB) -o $(NAME) $(OBJ)
