@@ -6,27 +6,45 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 05:53:06 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/25 23:50:06 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 #include "output.h"
+#include "colors.h"
 #include "ft_select.h"
 #include "ft_printf.h"
 
 #include "ftstring.h"
 
+static char		*get_arg_highlight(t_arg *arg)
+{
+	if (arg->selected)
+		return (REVERSE);
+	return ("");
+}
+
+static char		*get_arg_color(t_arg *arg)
+{
+	return ("");
+}
+
 static void		display_arg(size_t idx, t_list *arglist)
 {
 	t_arg		*arg;
 	t_info		*info;
+	char		*color;
+	char		*highlight;
 
 	arg = (t_arg *)arglist->content;
 	info = get_set_info();
 	if (idx % info->display_table.cols == 0)
 		ft_printf("\n");
-	ft_printf("%-*s", info->display_table.col_width, arg->value);
+	color = get_arg_color(arg);
+	highlight = get_arg_highlight(arg);
+	ft_printf("%s%s%-*s%s", color, highlight,
+		info->display_table.col_width, arg->value, RESET);
 }
 
 static bool		not_deleted(size_t idx, t_list *arglst)
