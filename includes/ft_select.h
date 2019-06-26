@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 06:58:46 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 10:22:22 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,12 @@ void						print_selected_args(t_dlist *args);
 */
 
 void						user_input(t_dlist **args);
+
+/*
+** src/signal.c
+*/
+
+void						inti_signal_handlers(t_dlist **args);
 
 /*
 ** src/actions/stop.c

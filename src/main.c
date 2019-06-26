@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 02:53:15 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 06:28:56 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 10:30:38 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		main_loop(t_dlist **args)
 	}
 }
 
-int			main(int ac, char *av[])
+int				main(int ac, char *av[])
 {
 	t_dlist	*args;
 
@@ -38,6 +38,7 @@ int			main(int ac, char *av[])
 	{
 		init_config();
 		args = argv_to_list(ac -1, av + 1, arg_to_lst_elem);
+		inti_signal_handlers(&args);
 		main_loop(&args);
 		reset_config();
 	}
