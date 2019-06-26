@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 01:54:45 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 02:03:41 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ struct						s_arg
 	t_file_type				type;
 	char					*value;
 	size_t					length;
-	bool					deleted;
 	bool					selected;
 };
 typedef struct s_arg		t_arg;

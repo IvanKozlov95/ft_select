@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 23:50:06 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 02:03:33 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,6 @@ static void		display_arg(size_t idx, t_list *arglist)
 		info->display_table.col_width, arg->value, RESET);
 }
 
-static bool		not_deleted(size_t idx, t_list *arglst)
-{
-	(void)idx;
-	return (!((t_arg *)(arglst->content))->deleted);
-}
-
 void			refresh_display_table(t_list *args)
 {
 	size_t		tmp;
@@ -76,5 +70,5 @@ void		display_args(t_list *args)
 	SETTERMCMD("cl");
 	if (info->display_table.rows > TERMHEIGHT)
 		return ;
-	ft_lstiteriif(args, display_arg, not_deleted);
+	ft_lstiteriif(args, display_arg, NULL);
 }
