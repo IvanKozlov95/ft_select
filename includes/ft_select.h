@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 06:26:39 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 06:58:46 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ struct						s_info
 	t_dlist				*active_arg;
 };
 typedef struct s_info		t_info;
+
+typedef void				(*t_move_action)(t_dlist *);
+
+/*
+** src/usage.c
+*/
 
 void						print_usage();
 
@@ -110,6 +116,12 @@ void						user_input(t_dlist **args);
 
 void						ft_select_free_arg(void *arg, size_t size);
 void						ft_select_stop(t_dlist *args, bool print_selected);
+
+/*
+** src/actions/stop.c
+*/
+
+void						move_active(int key_id, t_dlist *args);
 
 /*
 ** MACROS
