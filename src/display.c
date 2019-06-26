@@ -6,12 +6,13 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 03:08:00 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 03:49:04 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "output.h"
 #include "colors.h"
+#include "ftstring.h"
 #include "ft_select.h"
 #include "ft_printf.h"
 
@@ -19,9 +20,12 @@
 
 static char		*get_arg_highlight(t_arg *arg)
 {
+	t_arg	*selected_arg;
+
+	selected_arg = get_set_info()->active_arg->content;
 	if (arg->selected)
-		return (REVERSE);
-	return ("");
+		return (UNDLINE""REVERSE);
+	return (selected_arg == arg ? UNDLINE : "");
 }
 
 static char		*get_arg_color(t_arg *arg)
