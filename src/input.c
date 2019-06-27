@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 18:58:15 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:12:07 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void			user_input(t_dlist **args)
 		ft_select_stop(*args, false);
 	else if (c == KBSPACE || c == KDELETE)
 		delete_active_arg(args);
-	else if (c == KUP ||c == KDOWN || c == KLEFT || c == KRIGHT)
+	else if (c == KUP || c == KDOWN || c == KLEFT || c == KRIGHT)
 		move_active(c, *args);
 }

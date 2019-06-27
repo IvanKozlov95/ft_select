@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 22:54:21 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 19:05:30 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:09:21 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void		init_terminal_data(void)
 
 	termtype = getenv("TERM");
 	if (termtype == NULL)
-		fatal(EXIT_ERROR, "Specify a terminal type with `setenv TERM <yourtype>'.\n");
+		fatal(EXIT_ERROR, "Specify a terminal type with\
+`setenv TERM <yourtype>'.\n");
 	success = tgetent(buf, termtype);
 	if (success < 0)
 		fatal(EXIT_ERROR, "Could not access the termcap data base.\n");
@@ -50,7 +51,7 @@ void			init_config(void)
 	info = get_set_info();
 	tcgetattr(STDERR_FILENO, &(info->default_attr));
 	ft_memcpy(&(info->attr), &(info->default_attr), sizeof(struct termios));
-	info->attr .c_lflag &= ~(ICANON | ECHO);
+	info->attr.c_lflag &= ~(ICANON | ECHO);
 	tcsetattr(STDERR_FILENO, TCSANOW, &(info->attr));
 	SETTERMCMD("ti");
 	SETTERMCMD("vi");

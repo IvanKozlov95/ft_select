@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 01:42:12 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 03:07:11 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:07:45 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ t_dlist					*arg_to_lst_elem(char *arg)
 	return (dlstnew(&newarg, sizeof(t_arg)));
 }
 
-t_dlist					*argv_to_list(int ac, char *av[], t_dlist *(new_elem)(char *))
+t_dlist					*argv_to_list(int ac, char *av[],
+	t_dlist *(new_elem)(char *))
 {
 	int			i;
 	t_dlist		*ret;

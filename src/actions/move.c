@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 06:34:43 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 08:09:30 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:05:40 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void		down(t_dlist *args)
 		right(args);
 }
 
-void		move_active(int key_id, t_dlist *args)
+void			move_active(int key_id, t_dlist *args)
 {
 	static t_move_action dispatch[] = {
 		0, &left, 0, &up, 0, &right, 0, 0, 0, &down,

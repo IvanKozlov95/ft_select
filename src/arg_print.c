@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 00:22:06 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 03:04:29 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:07:10 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static bool				is_selected(size_t idx, t_dlist *arg)
 	return (((t_arg *)arg->content)->selected);
 }
 
-static void				print_selected_arg(t_dlist *arg, size_t idx, t_dlist *list)
+static void				print_selected_arg(t_dlist *arg,
+	size_t idx, t_dlist *list)
 {
 	static char		*separator;
 

@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 20:52:35 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:04:15 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void			refresh_display_table(t_dlist *args)
 		+ tmp % info->display_table.cols != 0;
 }
 
-void		display_args(t_dlist *args)
+void			display_args(t_dlist *args)
 {
 	t_info		*info;
 
