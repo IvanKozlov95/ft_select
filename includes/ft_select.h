@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 19:29:04 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 21:05:18 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,6 @@ struct						s_info
 typedef struct s_info		t_info;
 
 typedef void				(*t_move_action)(t_dlist *);
-
-/*
-** src/usage.c
-*/
-
-void						print_usage();
 
 /*
 ** src/info.c

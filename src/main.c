@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft_select.h"
+#include "ft_printf.h"
+
+static void		print_usage(void)
+{
+	ft_printf("usage: ./ft_select [argument ...]\n");
+}
 
 static void		main_loop(t_dlist **args)
 {
