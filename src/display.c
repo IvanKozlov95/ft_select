@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 21:04:15 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/27 16:38:19 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void			refresh_display_table(t_dlist *args)
 	info->display_table.col_width = get_longest_arg(args)->length + 1;
 	tmp = dlstcount(args);
 	info->display_table.cols = TERMWIDTH / info->display_table.col_width;
+	if (info->display_table.cols == 0)
+		info->display_table.cols++;
 	info->display_table.rows = tmp / info->display_table.cols
 		+ tmp % info->display_table.cols != 0;
 }
