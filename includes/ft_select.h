@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 10:22:22 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 19:29:04 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_SELECT_H
 
 # include "dlist.h"
+# include "output.h"
 
 # include <term.h>
 # include <curses.h>
@@ -135,9 +136,9 @@ void						move_active(int key_id, t_dlist *args);
 
 # define EXIT_ERROR -1
 # define _W struct winsize w
-# define _GETWINSIZE(w) ioctl(STDOUT_FILENO, TIOCGWINSZ, &w)
+# define _GETWINSIZE(w) ioctl(STDERR_FILENO, TIOCGWINSZ, &w)
 # define TERMWIDTH ({ _W; _GETWINSIZE(w); w.ws_col; })
 # define TERMHEIGHT ({ _W; _GETWINSIZE(w); w.ws_row; })
-# define SETTERMCMD(id) ({char *v = tgetstr(id, 0); tputs(v, 1, ft_putc);})
+# define SETTERMCMD(id) ({char *v = tgetstr(id, 0); tputs(v, 1, ft_putc_err);})
 
 #endif

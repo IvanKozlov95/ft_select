@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 06:59:42 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 18:58:15 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			user_input(t_dlist **args)
 	int		c;
 
 	c = 0;
-	read(STDIN_FILENO, &c, 4);
+	read(STDERR_FILENO, &c, 4);
 	if (c == ' ')
 		toggle_selected(*args);
 	else if (c == KENTER)

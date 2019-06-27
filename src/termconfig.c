@@ -6,12 +6,11 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 22:54:21 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/25 06:00:26 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 19:05:30 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory.h"
-#include "output.h"
 #include "ft_select.h"
 
 #include <stdlib.h>
@@ -38,7 +37,7 @@ void			reset_config(void)
 	t_info		*info;
 
 	info = get_set_info();
-	tcsetattr(STDOUT_FILENO, TCSANOW, &(info->default_attr));
+	tcsetattr(STDERR_FILENO, TCSANOW, &(info->default_attr));
 	SETTERMCMD("ve");
 	SETTERMCMD("te");
 }
@@ -49,10 +48,10 @@ void			init_config(void)
 
 	init_terminal_data();
 	info = get_set_info();
-	tcgetattr(STDOUT_FILENO, &(info->default_attr));
+	tcgetattr(STDERR_FILENO, &(info->default_attr));
 	ft_memcpy(&(info->attr), &(info->default_attr), sizeof(struct termios));
 	info->attr .c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDOUT_FILENO, TCSANOW, &(info->attr));
+	tcsetattr(STDERR_FILENO, TCSANOW, &(info->attr));
 	SETTERMCMD("ti");
 	SETTERMCMD("vi");
 }

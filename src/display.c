@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 03:49:04 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/26 20:52:35 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ static void		display_arg(t_dlist *arglist, size_t idx, t_dlist *list)
 	arg = (t_arg *)arglist->content;
 	info = get_set_info();
 	if (idx % info->display_table.cols == 0)
-		ft_printf("\n");
+		ft_dprintf(STDERR_FILENO, "\n");
 	color = get_arg_color(arg);
 	highlight = get_arg_highlight(arg);
-	ft_printf("%s%s%-*s%s", color, highlight,
+	ft_dprintf(STDERR_FILENO, "%s%s%-*s%s", color, highlight,
 		info->display_table.col_width, arg->value, RESET);
 }
 
@@ -59,7 +59,6 @@ void			refresh_display_table(t_dlist *args)
 
 	info = get_set_info();
 	info->display_table.col_width = get_longest_arg(args)->length + 1;
-	// todo: use count if
 	tmp = dlstcount(args);
 	info->display_table.cols = TERMWIDTH / info->display_table.col_width;
 	info->display_table.rows = tmp / info->display_table.cols
