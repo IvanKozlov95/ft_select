@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/28 02:07:03 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/28 03:23:22 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:26:40 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static	void	match(t_dlist *arglist, size_t idx, t_dlist *list)
 	t_arg			*arg;
 	t_string		*search;
 
+	(void)idx;
+	(void)list;
 	search = get_set_info()->search;
 	arg = (t_arg *)arglist->content;
 	arg->search_match = ft_strstr(arg->value, search->content) == arg->value;

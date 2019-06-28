@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 01:42:12 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/27 17:30:47 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:37:13 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,29 @@
 static t_file_type		get_file_type(char *path)
 {
 	char			*name;
+	t_file_type		ret;
 	struct stat		f;
 
+	ret = UNKNW;
 	name = getfilename(path);
 	if (lstat(path, &f))
-		return (UNKNW);
-	if (S_ISDIR(f.st_mode))
-		return (DIR);
-	if (f.st_mode & S_IXUSR)
-		return (EXECFILE);
-	if (strendswith(name, ".c"))
-		return (CFILE);
-	if (strendswith(name, ".o"))
-		return (OFILE);
-	if (strendswith(name, ".h"))
-		return (HFILE);
-	if (ft_strequ(name, "Makefile"))
-		return (MAKEFILE);
-	if (name[0] == '.')
-		return (DOTFILE);
-	return (UNKNW);
+		ret = UNKNW;
+	else if (S_ISDIR(f.st_mode))
+		ret = DIR;
+	else if (f.st_mode & S_IXUSR)
+		ret = EXECFILE;
+	else if (strendswith(name, ".c"))
+		ret = CFILE;
+	else if (strendswith(name, ".o"))
+		ret = OFILE;
+	else if (strendswith(name, ".h"))
+		ret = HFILE;
+	else if (ft_strequ(name, "Makefile"))
+		ret = MAKEFILE;
+	else if (name[0] == '.')
+		ret = DOTFILE;
+	ft_free(1, name);
+	return (ret);
 }
 
 t_arg					*get_longest_arg(t_dlist *args)

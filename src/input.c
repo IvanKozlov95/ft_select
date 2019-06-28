@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/28 03:23:46 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:26:21 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void		select_arg(t_dlist *arglist, size_t idx, t_dlist *list)
 {
 	t_arg			*arg;
 
+	(void)idx;
+	(void)list;
 	arg = (t_arg *)arglist->content;
 	if (arg->search_match)
 		arg->selected = true;
