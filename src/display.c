@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/28 03:14:02 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:24:29 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ static void		display_arg(t_dlist *arglist, size_t idx, t_dlist *list)
 	highlight = get_arg_highlight(arg);
 	ft_dprintf(STDERR_FILENO, "%s%s", color, highlight);
 	if (info->search->length > 0 && arg->search_match)
-		ft_dprintf(STDERR_FILENO, BOLD"%s"RESET"%s%s%-*s"RESET, info->search->content,
-		color, highlight, info->display_table.col_width - info->search->length,
+		ft_dprintf(STDERR_FILENO, BOLD"%s"RESET"%s%s%-*s"RESET,
+		info->search->content, color, highlight,
+		info->display_table.col_width - info->search->length,
 		arg->value + info->search->length);
 	else
 		ft_dprintf(STDERR_FILENO, "%-*s%s", info->display_table.col_width,

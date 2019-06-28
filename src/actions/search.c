@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/28 02:07:03 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/28 03:18:38 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:23:22 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void			ft_select_clear_search(int c)
 {
 	if ((c != KBSPACE && !ISPRINT(c)) || ISSPACE(c))
 	{
-		ft_bzero(get_set_info()->search->content, get_set_info()->search->length);
+		ft_bzero(get_set_info()->search->content,
+			get_set_info()->search->length);
 		get_set_info()->search->length = 0;
 	}
 }

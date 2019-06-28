@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:03:18 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/28 03:18:26 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:23:46 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static void		delete_active_arg(t_dlist **args)
 static void		handle_bckspace(t_dlist **args)
 {
 	if (get_set_info()->search->length > 0)
-		return ft_select_search(-1, NULL);
-	return delete_active_arg(args);
+		return (ft_select_search(-1, NULL));
+	return (delete_active_arg(args));
 }
 
 void			user_input(t_dlist **args)
