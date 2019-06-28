@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:17:31 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/27 16:38:19 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/27 17:49:22 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ static char		*get_arg_highlight(t_arg *arg)
 
 static char		*get_arg_color(t_arg *arg)
 {
-	(void)arg;
-	return ("");
+	static char	*colors[] = {
+		MAG, CYN, BRBLU, YEL, GRN, BLU, RED, "",
+	};
+
+	return (colors[arg->type]);
 }
 
 static void		display_arg(t_dlist *arglist, size_t idx, t_dlist *list)

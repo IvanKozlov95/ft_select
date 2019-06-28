@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 21:05:18 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/27 17:27:57 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@
 
 enum						e_file_type
 {
+	CFILE = 0,
+	OFILE,
+	HFILE,
+	MAKEFILE,
+	DOTFILE,
+	DIR,
+	EXECFILE,
 	UNKNW,
 };
 typedef enum e_file_type	t_file_type;

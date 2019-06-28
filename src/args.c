@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 01:42:12 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 21:07:45 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/27 17:30:47 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,30 @@
 #include "ftstring.h"
 #include "ft_select.h"
 
+#include <sys/stat.h>
+
 static t_file_type		get_file_type(char *path)
 {
-	(void)path;
-	// todo: not implemented
+	char			*name;
+	struct stat		f;
+
+	name = getfilename(path);
+	if (lstat(path, &f))
+		return (UNKNW);
+	if (S_ISDIR(f.st_mode))
+		return (DIR);
+	if (f.st_mode & S_IXUSR)
+		return (EXECFILE);
+	if (strendswith(name, ".c"))
+		return (CFILE);
+	if (strendswith(name, ".o"))
+		return (OFILE);
+	if (strendswith(name, ".h"))
+		return (HFILE);
+	if (ft_strequ(name, "Makefile"))
+		return (MAKEFILE);
+	if (name[0] == '.')
+		return (DOTFILE);
 	return (UNKNW);
 }
 
