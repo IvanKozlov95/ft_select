@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 02:53:15 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 21:12:59 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 02:28:15 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ int				main(int ac, char *av[])
 	else
 	{
 		init_config();
+		init_info();
 		args = argv_to_list(ac - 1, av + 1, arg_to_lst_elem);
 		inti_signal_handlers(&args);
 		main_loop(&args);
-		reset_config();
+		ft_select_stop(args, false);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 00:33:05 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/26 21:05:52 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 02:27:53 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void			ft_select_free_arg(void *arg, size_t size)
 void			ft_select_stop(t_dlist *args, bool print_selected)
 {
 	reset_config();
+	destroy_info();
 	if (print_selected)
 		print_selected_args(args);
 	dlstdel(&args, ft_select_free_arg);

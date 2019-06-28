@@ -6,7 +6,7 @@
 /*   By: ivankozlov <ivankozlov@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 21:43:07 by ivankozlov        #+#    #+#             */
-/*   Updated: 2019/06/27 17:27:57 by ivankozlov       ###   ########.fr       */
+/*   Updated: 2019/06/28 03:13:16 by ivankozlov       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "dlist.h"
 # include "output.h"
+# include "dstring.h"
 
 # include <term.h>
 # include <curses.h>
@@ -43,6 +44,7 @@ struct						s_arg
 	char					*value;
 	size_t					length;
 	bool					selected;
+	bool					search_match;
 };
 typedef struct s_arg		t_arg;
 
@@ -60,6 +62,7 @@ struct						s_info
 	struct termios		default_attr;
 	t_table				display_table;
 	t_dlist				*active_arg;
+	t_string			*search;
 };
 typedef struct s_info		t_info;
 
@@ -69,6 +72,8 @@ typedef void				(*t_move_action)(t_dlist *);
 ** src/info.c
 */
 
+void						init_info(void);
+void						destroy_info(void);
 t_info						*get_set_info(void);
 
 /*
@@ -130,6 +135,13 @@ void						ft_select_stop(t_dlist *args, bool print_selected);
 */
 
 void						move_active(int key_id, t_dlist *args);
+
+/*
+** src/actions/search.c
+*/
+
+void						ft_select_clear_search(int c);
+void						ft_select_search(int c, t_dlist *args);
 
 /*
 ** MACROS
